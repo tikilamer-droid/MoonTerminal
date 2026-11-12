@@ -96,6 +96,11 @@ pub struct HotkeysConfig {
     /// generation: serde's default leaves it empty in every existing file.
     #[serde(default)]
     pub cancel_all_buys_all_cores: String,
+    /// Place again the pending buys saved when they were last cancelled, on every connected core.
+    ///
+    /// Unbound by default, so serde's default leaves it empty in every existing file.
+    #[serde(default)]
+    pub restore_canceled_buys: String,
     #[serde(default = "default_join_sells")]
     pub join_sells: String,
     #[serde(default = "default_switch_charts")]
@@ -338,6 +343,7 @@ impl Default for HotkeysConfig {
             panic_sell_one: default_panic_sell_one(),
             cancel_all_buys: default_cancel_all_buys(),
             cancel_all_buys_all_cores: String::new(),
+            restore_canceled_buys: String::new(),
             join_sells: default_join_sells(),
             switch_charts: default_switch_charts(),
             new_long: default_new_long(),

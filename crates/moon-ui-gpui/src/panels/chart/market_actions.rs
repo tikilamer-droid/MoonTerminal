@@ -272,9 +272,9 @@ fn dispatch_market_action(
         }
         match action {
             ChartAction::CancelBuy => {
-                if let Err(error) = b.session.cancel_market_buys(core, market) {
-                    log::warn!("cancel market buys failed: {error:#}");
-                }
+                // Through the Backend method, not the session directly: it keeps the pending buys
+                // first, so the "Restore canceled buys" key can place them again.
+                b.cancel_buy_orders(core, &market);
             }
             ChartAction::PanicSell => {
                 b.toggle_panic_sell(core, market);

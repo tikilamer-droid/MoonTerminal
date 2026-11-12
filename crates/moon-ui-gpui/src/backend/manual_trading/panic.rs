@@ -186,6 +186,8 @@ impl Backend {
 
     /// Send one request to cancel pending market buys and report whether it was accepted.
     pub(crate) fn cancel_buy_orders(&self, core: CoreId, market: &str) -> usize {
+        // Keep what is about to be cancelled, so the "Restore canceled buys" key can place it again.
+        self.save_pending_buys(core, market);
         match self.session.cancel_market_buys(core, market.to_string()) {
             Ok(()) => {
                 log::info!(

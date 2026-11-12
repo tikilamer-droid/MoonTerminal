@@ -28,6 +28,8 @@ pub enum KeySlot {
     CancelAllBuys,
     /// Moonbot's "Cancel buys in all bots": what `CancelAllBuys` does, on every connected core.
     CancelAllBuysAllCores,
+    /// Place again the pending buys saved at the last cancel, on every connected core.
+    RestoreCanceledBuys,
     JoinSells,
     SwitchCharts,
     NewLong,
@@ -101,6 +103,7 @@ impl KeySlot {
         Self::FigDelete,
         Self::FigAlert,
         Self::FigUndo,
+        Self::RestoreCanceledBuys,
         // Last, like its step in the UI's key dispatch: `HotkeysConfig::action_for_gesture` walks
         // this order, so a click bound here AND to another slot fires the other one, never the
         // widest action there is.
@@ -138,6 +141,7 @@ impl KeySlot {
             Self::PanicSellOne => "panic_sell_one",
             Self::CancelAllBuys => "cancel_all_buys",
             Self::CancelAllBuysAllCores => "cancel_all_buys_all_cores",
+            Self::RestoreCanceledBuys => "restore_canceled_buys",
             Self::JoinSells => "join_sells",
             Self::SwitchCharts => "switch_charts",
             Self::NewLong => "new_long",

@@ -220,6 +220,8 @@ pub fn key_slot_meta(slot: KeySlot) -> SlotMeta {
         // in the raw `UiSection` tail, so the binding here is the Terminal's: nothing imports or
         // pulls it.
         S::CancelAllBuysAllCores => meta(Local, Scope::APP),
+        // Terminal-only like the cancel above: nothing imports or pulls it.
+        S::RestoreCanceledBuys => meta(Local, Scope::APP),
         // Group-owned: the group's charts and the group's price scale.
         S::SwitchCharts | S::ScalePlus | S::ScaleMinus => meta(Shared, Scope::WINDOW),
         // The Moonbot schema has no super-zoom key slots to import.

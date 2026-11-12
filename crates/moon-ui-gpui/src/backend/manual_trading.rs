@@ -6,6 +6,7 @@ mod tests;
 mod exits;
 mod ownership;
 mod panic;
+mod saved_limits;
 mod selectors;
 mod sizing;
 mod slots;

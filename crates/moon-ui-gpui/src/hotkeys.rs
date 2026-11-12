@@ -85,6 +85,9 @@ pub enum HotkeyAction {
     /// bots". Reads no group, target or active core, so it acts the same from every window that
     /// routes trading keys — group windows, Auto Overview and detached charts.
     CancelAllBuysAllCores,
+    /// Place again the pending buys saved at the last cancel, on every connected core. Reads no
+    /// group, target or active core, like `CancelAllBuysAllCores`.
+    RestoreCanceledBuys,
     /// Toggle panic sell for the active chart's market.
     PanicSell,
     /// Immediately close the active chart market's position with a market sell.
@@ -537,6 +540,8 @@ impl HotkeyAction {
                 // One press already reaches every market of every core; a held key would only
                 // repeat that fan-out at the system rate.
                 | Self::CancelAllBuysAllCores
+                // One press places every saved order; a held key must not repeat it.
+                | Self::RestoreCanceledBuys
                 | Self::FigAlert
                 // A held key repeats at the system rate, and each repeat would take another
                 // figure: unlike `FigDelete`, which runs out after the one selected figure, this
@@ -694,6 +699,7 @@ pub const DISPATCH: &[Step] = &[
     // it twice — the Moonbot import writes keys with no clash check. On a shared key every other
     // action wins, so a collision costs the fan-out rather than silently replacing, say, the
     // Panic Sell the import put there.
+    Step::Slot(KeySlot::RestoreCanceledBuys),
     Step::Slot(KeySlot::CancelAllBuysAllCores),
 ];
 
@@ -725,6 +731,7 @@ pub fn action_of(slot: KeySlot, hk: &HotkeysConfig) -> HotkeyAction {
         KeySlot::PanicSellOne => A::PanicSellOne,
         KeySlot::CancelAllBuys => A::CancelAllBuys,
         KeySlot::CancelAllBuysAllCores => A::CancelAllBuysAllCores,
+        KeySlot::RestoreCanceledBuys => A::RestoreCanceledBuys,
         KeySlot::JoinSells => A::JoinSells,
         KeySlot::SwitchCharts => A::SwitchCharts,
         KeySlot::NewLong => A::NewLong,
@@ -1220,6 +1227,11 @@ pub fn apply(
         // says that nothing went out.
         A::CancelAllBuysAllCores => {
             b.cancel_all_buys_all_cores();
+            true
+        }
+        // Consumed even with nothing saved: the key is ours, and the log line says what went out.
+        A::RestoreCanceledBuys => {
+            b.restore_canceled_buys_all_cores();
             true
         }
         // The only debounce on the Panic Sell path: an impatient re-jab within the hotkey's

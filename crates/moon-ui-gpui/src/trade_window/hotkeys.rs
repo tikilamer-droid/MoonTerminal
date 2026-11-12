@@ -54,6 +54,7 @@ pub(super) fn route(action: crate::hotkeys::HotkeyAction) -> Option<TradeHotkey>
         | A::CancelBuy
         | A::CancelAllBuys
         | A::CancelAllBuysAllCores
+        | A::RestoreCanceledBuys
         | A::PanicSell
         | A::PanicSellOne
         | A::JoinSells

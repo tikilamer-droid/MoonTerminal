@@ -501,6 +501,7 @@ core_update.menu.named_ph: ru es uk tr pt vi zh
 crowd.col.id: ru es uk tr pt vi zh
 hotkeys.cancel_all_buys: ru es uk tr pt vi zh
 hotkeys.cancel_all_buys_all_cores: ru es uk tr pt vi zh
+hotkeys.restore_canceled_buys: ru es uk tr pt vi zh
 hotkeys.cancel_buy: ru es uk tr pt vi zh
 hotkeys.chart_shot: ru es uk tr pt vi zh
 hotkeys.cmd.sell_preset: ru es uk tr pt vi zh
