@@ -71,7 +71,7 @@ impl KeySlot {
     /// unenumerated. What checks it is a test that serializes the config with every slot written a
     /// marker and looks for a stored keystroke that kept its own value: the STRUCT is the reference,
     /// never this list, because a test that walks this list to verify this list proves nothing.
-    pub const NAMED: [Self; 32] = [
+    pub const NAMED: [Self; 33] = [
         Self::CancelBuy,
         Self::PanicSell,
         Self::PanicSellOne,
