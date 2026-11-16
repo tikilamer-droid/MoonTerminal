@@ -56,7 +56,7 @@ hotkeys.cancel_all_buys_hint: "Cancela todas las compras del núcleo activo en t
 hotkeys.cancel_all_buys_all_cores: "Cancel buys in all bots"
 hotkeys.cancel_all_buys_all_cores_hint: "Cancela todas las compras y compras pendientes en todos los núcleos conectados a la vez, desde cualquier ventana que acepte teclas de trading (la ventana de la operación no). Las ventas se mantienen; los núcleos desconectados se omiten; sin confirmación. Sin asignar por defecto."
 hotkeys.restore_canceled_buys: "Restore canceled buys"
-hotkeys.restore_canceled_buys_hint: "Vuelve a colocar las compras guardadas en la última cancelación (Cancel Buy, cancelar todas las compras, cancelar compras en todos los bots) en todos los núcleos conectados a la vez, con el mismo tamaño y la misma distancia al precio actual. Las órdenes que se ejecutarían de inmediato o sin precio actual se omiten y siguen guardadas. Sin asignar por defecto."
+hotkeys.restore_canceled_buys_hint: "Vuelve a colocar las compras canceladas del núcleo activo (el seleccionado en esta ventana): las que cancelaste tú (Cancel Buy, Cancel All Buys) y las canceladas por sí solas sin ejecución (se guardan 48 horas). Cada una vuelve a la misma distancia del precio actual y con el mismo tamaño en USD. Las órdenes que se ejecutarían de inmediato, sin precio actual o ya colocadas de nuevo por una estrategia no se duplican. Los demás núcleos no se tocan. Sin asignar por defecto."
 hotkeys.join_sells: "Join Sells"
 hotkeys.join_sells_hint: "Une órdenes sell del mercado activo."
 hotkeys.new_long: "New Long"

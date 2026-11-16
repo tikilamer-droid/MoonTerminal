@@ -56,7 +56,7 @@ hotkeys.cancel_all_buys_hint: "Cancel every buy of the active core across all ma
 hotkeys.cancel_all_buys_all_cores: "Cancel buys in all bots"
 hotkeys.cancel_all_buys_all_cores_hint: "Cancel every buy and pending buy on all connected cores at once, from any window that takes trading keys (the trade window does not). Sells stay; offline cores are skipped; no confirmation. Unbound by default."
 hotkeys.restore_canceled_buys: "Restore canceled buys"
-hotkeys.restore_canceled_buys_hint: "Place again the buys saved when you last cancelled them (Cancel Buy, cancel all buys, cancel buys in all bots), on every connected core at once, with the same size and the same distance from the current price. Orders that would fill immediately or have no current price are skipped and stay saved. Unbound by default."
+hotkeys.restore_canceled_buys_hint: "Place again the cancelled buys of the active core (the one selected in this window): the ones you cancelled yourself (Cancel Buy, Cancel All Buys) and the ones that were cancelled on their own without a fill (kept for 48 hours). Each comes back with the same distance from the current price and the same USD size. Orders that would fill immediately, have no current price, or were already placed again by a strategy are not duplicated. Other cores are not touched. Unbound by default."
 hotkeys.join_sells: "Join Sells"
 hotkeys.join_sells_hint: "Join sell orders for the active market."
 hotkeys.new_long: "New Long"

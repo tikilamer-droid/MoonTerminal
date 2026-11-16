@@ -140,6 +140,10 @@ impl Backend {
             .core(core)
             .map(|cd| cancel_all_buys_markets(&cd.orders))
             .unwrap_or_default();
+        // A cancel-all is a fresh picture: earlier saved cancels of this core give way to it.
+        if !markets.is_empty() {
+            self.begin_cancel_all_saving(core);
+        }
         let mut n = 0;
         for m in markets {
             n += self.cancel_buy_orders(core, &m);

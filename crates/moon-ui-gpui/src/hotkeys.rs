@@ -85,8 +85,8 @@ pub enum HotkeyAction {
     /// bots". Reads no group, target or active core, so it acts the same from every window that
     /// routes trading keys — group windows, Auto Overview and detached charts.
     CancelAllBuysAllCores,
-    /// Place again the pending buys saved at the last cancel, on every connected core. Reads no
-    /// group, target or active core, like `CancelAllBuysAllCores`.
+    /// Place again the pending buys saved when they were cancelled, on the window's active core
+    /// only, like `CancelAllBuys`.
     RestoreCanceledBuys,
     /// Toggle panic sell for the active chart's market.
     PanicSell,
@@ -1229,11 +1229,14 @@ pub fn apply(
             b.cancel_all_buys_all_cores();
             true
         }
-        // Consumed even with nothing saved: the key is ours, and the log line says what went out.
-        A::RestoreCanceledBuys => {
-            b.restore_canceled_buys_all_cores();
-            true
-        }
+        // The active core only, as for `CancelAllBuys`; the log line says what went out.
+        A::RestoreCanceledBuys => match active_core {
+            Some(core) => {
+                b.restore_canceled_buys_for_core(core);
+                true
+            }
+            None => false,
+        },
         // The only debounce on the Panic Sell path: an impatient re-jab within the hotkey's
         // debounce window is absorbed as a no-op. The direct chart-button path is deliberately
         // unguarded because it is an explicit click on the labelled control.

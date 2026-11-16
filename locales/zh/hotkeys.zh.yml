@@ -56,7 +56,7 @@ hotkeys.cancel_all_buys_hint: "撤销当前核心在所有市场的全部买单�
 hotkeys.cancel_all_buys_all_cores: "Cancel buys in all bots"
 hotkeys.cancel_all_buys_all_cores_hint: "从任何接受交易按键的窗口（交易窗口不接受），一次撤销所有已连接核心上的全部买单和买入条件单。卖单不受影响；离线核心会被跳过；无需确认。默认未绑定。"
 hotkeys.restore_canceled_buys: "Restore canceled buys"
-hotkeys.restore_canceled_buys_hint: "把上次撤单时保存的买单重新挂出（Cancel Buy、撤销全部买单、撤销所有机器人的买单），一次作用于所有已连接核心，数量相同，与当前价格的距离相同。会立即成交或没有当前价格的订单会被跳过并继续保存。默认未绑定。"
+hotkeys.restore_canceled_buys_hint: "重新挂出当前核心（此窗口中选中的核心）已撤销的买单：包括你自己撤销的（Cancel Buy、Cancel All Buys）以及未成交就被自动撤销的（保留 48 小时）。每个订单按与当前价格相同的距离和相同的 USD 数量恢复。会立即成交、没有当前价格或已被策略重新挂出的订单不会重复。不会影响其他核心。默认未绑定。"
 hotkeys.join_sells: "Join Sells"
 hotkeys.join_sells_hint: "合并当前市场的卖单。"
 hotkeys.new_long: "New Long"

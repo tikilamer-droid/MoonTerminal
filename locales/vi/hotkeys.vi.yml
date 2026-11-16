@@ -56,7 +56,7 @@ hotkeys.cancel_all_buys_hint: "Hủy mọi buy của core đang mở trên mọi
 hotkeys.cancel_all_buys_all_cores: "Cancel buys in all bots"
 hotkeys.cancel_all_buys_all_cores_hint: "Hủy mọi buy và buy chờ trên mọi core đã kết nối cùng lúc, từ bất kỳ cửa sổ nào nhận phím giao dịch (cửa sổ giao dịch thì không). Sell giữ nguyên; core ngoại tuyến bị bỏ qua; không hỏi xác nhận. Mặc định chưa gán."
 hotkeys.restore_canceled_buys: "Restore canceled buys"
-hotkeys.restore_canceled_buys_hint: "Đặt lại các lệnh buy đã lưu ở lần hủy gần nhất (Cancel Buy, hủy mọi buy, hủy buy ở mọi bot) trên mọi core đã kết nối cùng lúc, cùng kích thước và cùng khoảng cách so với giá hiện tại. Lệnh sẽ khớp ngay hoặc chưa có giá hiện tại sẽ bị bỏ qua và vẫn được lưu. Mặc định chưa gán phím."
+hotkeys.restore_canceled_buys_hint: "Đặt lại các lệnh buy đã hủy của core đang hoạt động (core được chọn trong cửa sổ này): cả lệnh bạn tự hủy (Cancel Buy, Cancel All Buys) lẫn lệnh tự bị hủy mà không khớp (lưu 48 giờ). Mỗi lệnh quay lại với cùng khoảng cách so với giá hiện tại và cùng kích thước USD. Lệnh sẽ khớp ngay, chưa có giá hiện tại hoặc đã được chiến lược đặt lại sẽ không bị nhân đôi. Các core khác không bị động đến. Mặc định chưa gán phím."
 hotkeys.join_sells: "Join Sells"
 hotkeys.join_sells_hint: "Gộp các lệnh sell của thị trường đang mở."
 hotkeys.new_long: "New Long"

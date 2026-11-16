@@ -56,7 +56,7 @@ hotkeys.cancel_all_buys_hint: "Aktif çekirdeğin tüm piyasalardaki her buy emr
 hotkeys.cancel_all_buys_all_cores: "Cancel buys in all bots"
 hotkeys.cancel_all_buys_all_cores_hint: "Bağlı tüm çekirdeklerdeki her buy ve bekleyen buy emrini bir anda iptal eder; işlem tuşu alan her pencereden (işlem penceresi almaz). Sell durur; çevrimdışı çekirdekler atlanır; onay yok. Varsayılan olarak atanmamış."
 hotkeys.restore_canceled_buys: "Restore canceled buys"
-hotkeys.restore_canceled_buys_hint: "Son iptalde kaydedilen buy emirlerini (Cancel Buy, tüm buy iptali, tüm botlarda buy iptali) bağlı tüm çekirdeklerde aynı anda, aynı boyut ve güncel fiyata aynı uzaklıkla yeniden verir. Hemen dolacak veya güncel fiyatı olmayan emirler atlanır ve kayıtlı kalır. Varsayılan olarak atanmamıştır."
+hotkeys.restore_canceled_buys_hint: "Etkin çekirdeğin (bu pencerede seçili olan) iptal edilen buy emirlerini yeniden verir: kendi iptal ettiklerinizi (Cancel Buy, Cancel All Buys) ve dolmadan kendiliğinden iptal olanları (48 saat saklanır). Her biri güncel fiyata aynı uzaklıkla ve aynı USD boyutuyla geri gelir. Hemen dolacak, güncel fiyatı olmayan veya bir strateji tarafından zaten yeniden verilmiş emirler çoğaltılmaz. Diğer çekirdeklere dokunulmaz. Varsayılan olarak atanmamıştır."
 hotkeys.join_sells: "Join Sells"
 hotkeys.join_sells_hint: "Aktif piyasanın sell emirlerini birleştirir."
 hotkeys.new_long: "New Long"

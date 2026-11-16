@@ -655,6 +655,7 @@ pub(super) fn boot(cfg: AppConfig, input: BootInput, cx: &mut App) {
                     }
                     b.collect_trade_sounds();
                     b.pump_sounds();
+                    b.track_pending_buys();
                     if drain.order_lines_data {
                         let chart_consumers = b.live_chart_consumers();
                         for chart in chart_consumers {
@@ -827,6 +828,8 @@ pub(super) fn boot(cfg: AppConfig, input: BootInput, cx: &mut App) {
                     b.tick_quiet(cx);
                     // Audio must finish its queue even when no more market events arrive.
                     b.pump_sounds();
+                    // Buys that go away on their own must be noticed even in a quiet market.
+                    b.track_pending_buys();
                     let now_ms_f = moon_chart::paint::now_unix_ms();
                     let now_ms = now_ms_f as i64;
                     let telemetry_tick = b.warn.tick_due(now_ms);

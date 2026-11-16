@@ -28,7 +28,7 @@ pub enum KeySlot {
     CancelAllBuys,
     /// Moonbot's "Cancel buys in all bots": what `CancelAllBuys` does, on every connected core.
     CancelAllBuysAllCores,
-    /// Place again the pending buys saved at the last cancel, on every connected core.
+    /// Place again the pending buys saved when they were cancelled, on the active core only.
     RestoreCanceledBuys,
     JoinSells,
     SwitchCharts,
